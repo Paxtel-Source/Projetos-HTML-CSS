@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Currículo de Gabriel Ramos, estudante de programação: projetos em C, Python, HTML e CSS.">
+  <title>Gabriel Ramos | Currículo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+  <!--
+    COMO EDITAR: troque os textos entre colchetes, como [Nome do curso],
+    pelos seus dados. Os níveis das habilidades são definidos pelo
+    atributo style="--nivel: 3" (de 1 a 5).
+  -->
+  <p class="acoes">
+    <a href="../">Outros projetos</a>
+    <span>Para salvar em PDF, use <kbd>Ctrl</kbd> + <kbd>P</kbd> e escolha "Salvar como PDF".</span>
+  </p>
+
+  <main class="folha">
+    <aside class="lateral">
+      <header class="identidade">
+        <h1 class="identidade__nome">Gabriel Ramos</h1>
+        <p class="identidade__cargo">Estudante de programação</p>
+      </header>
+
+      <section aria-labelledby="titulo-contato">
+        <h2 id="titulo-contato">Contato</h2>
+        <ul class="contato">
+          <li>
+            <span class="contato__tipo">E-mail</span>
+            <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a>
+          </li>
+          <li>
+            <span class="contato__tipo">GitHub</span>
+            <a href="https://github.com/Paxtel-Source">github.com/Paxtel-Source</a>
+          </li>
+          <li>
+            <span class="contato__tipo">Localização</span>
+            [Cidade] – [UF]
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="titulo-habilidades">
+        <h2 id="titulo-habilidades">Habilidades</h2>
+        <ul class="habilidades">
+          <li style="--nivel: 3">
+            <span class="habilidades__nome">C</span>
+            <span class="barra" aria-hidden="true"></span>
+            <span class="visualmente-oculto">nível 3 de 5</span>
+          </li>
+          <li style="--nivel: 3">
+            <span class="habilidades__nome">Python</span>
+            <span class="barra" aria-hidden="true"></span>
+            <span class="visualmente-oculto">nível 3 de 5</span>
+          </li>
+          <li style="--nivel: 3">
+            <span class="habilidades__nome">HTML</span>
+            <span class="barra" aria-hidden="true"></span>
+            <span class="visualmente-oculto">nível 3 de 5</span>
+          </li>
+          <li style="--nivel: 3">
+            <span class="habilidades__nome">CSS</span>
+            <span class="barra" aria-hidden="true"></span>
+            <span class="visualmente-oculto">nível 3 de 5</span>
+          </li>
+          <li style="--nivel: 2">
+            <span class="habilidades__nome">Git e GitHub</span>
+            <span class="barra" aria-hidden="true"></span>
+            <span class="visualmente-oculto">nível 2 de 5</span>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="titulo-idiomas">
+        <h2 id="titulo-idiomas">Idiomas</h2>
+        <ul class="idiomas">
+          <li><strong>Português</strong> nativo</li>
+          <li><strong>Inglês</strong> [nível]</li>
+        </ul>
+      </section>
+    </aside>
+
+    <div class="principal">
+      <section aria-labelledby="titulo-sobre">
+        <h2 id="titulo-sobre">Sobre mim</h2>
+        <p>
+          Estudante de programação construindo uma base sólida nos fundamentos:
+          estruturas de dados e arquivos em C, automação e testes em Python e
+          páginas acessíveis com HTML e CSS. Todos os meus projetos estão
+          publicados no GitHub, com documentação e instruções de uso.
+        </p>
+      </section>
+
+      <section aria-labelledby="titulo-projetos">
+        <h2 id="titulo-projetos">Projetos</h2>
+
+        <article class="item">
+          <header class="item__cabecalho">
+            <h3>Projetos em C</h3>
+            <a class="item__link" href="https://github.com/Paxtel-Source/projetos-c">ver no GitHub</a>
+          </header>
+          <p>
+            Seis programas de terminal: calculadora, agenda de contatos, jogo da velha,
+            conversor de bases numéricas, sistema escolar e compactador de arquivos RLE.
+          </p>
+          <ul class="item__tags">
+            <li>structs</li><li>ponteiros</li><li>arquivos binários</li><li>Makefile</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <header class="item__cabecalho">
+            <h3>Projetos em Python</h3>
+            <a class="item__link" href="https://github.com/Paxtel-Source/Projetos-Python">ver no GitHub</a>
+          </header>
+          <p>
+            Gerador de senhas seguras com medidor de força e controle de gastos pessoais
+            com resumo mensal e gráfico por categoria. Testes rodando no GitHub Actions.
+          </p>
+          <ul class="item__tags">
+            <li>pytest</li><li>argparse</li><li>JSON</li><li>matplotlib</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <header class="item__cabecalho">
+            <h3>Projetos em HTML e CSS</h3>
+            <a class="item__link" href="https://paxtel-source.github.io/Projetos-HTML-CSS/">ver online</a>
+          </header>
+          <p>
+            Cartão de visita digital, página de receita com versão para impressão e
+            este currículo, todos responsivos e publicados no GitHub Pages.
+          </p>
+          <ul class="item__tags">
+            <li>HTML semântico</li><li>Flexbox</li><li>CSS Grid</li><li>@media print</li>
+          </ul>
+        </article>
+      </section>
+
+      <section aria-labelledby="titulo-formacao">
+        <h2 id="titulo-formacao">Formação</h2>
+        <article class="item">
+          <header class="item__cabecalho">
+            <h3>[Nome do curso]</h3>
+            <p class="item__periodo"><time datetime="2025">[Ano de início]</time> – [Previsão de conclusão]</p>
+          </header>
+          <p>[Instituição de ensino]</p>
+        </article>
+      </section>
+
+      <section aria-labelledby="titulo-cursos">
+        <h2 id="titulo-cursos">Cursos complementares</h2>
+        <ul class="cursos">
+          <li><strong>[Nome do curso]</strong>, [Plataforma ou escola], [ano]</li>
+          <li><strong>[Nome do curso]</strong>, [Plataforma ou escola], [ano]</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

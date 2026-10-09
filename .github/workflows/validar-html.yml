@@ -1,0 +1,19 @@
+name: Validar HTML
+
+# Verifica todas as páginas a cada push e pull request
+on:
+  push:
+  pull_request:
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validar com html-validate
+        run: npx --yes html-validate@9 "**/*.html"

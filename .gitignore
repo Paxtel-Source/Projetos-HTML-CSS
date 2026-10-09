@@ -1,0 +1,12 @@
+# Dependências do Node (caso use alguma ferramenta)
+node_modules/
+
+# Editores e sistema operacional
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# PDFs gerados ao testar a impressão
+*.pdf

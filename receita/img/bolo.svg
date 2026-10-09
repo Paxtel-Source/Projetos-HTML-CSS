@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="Ilustração de um pedaço de bolo de cenoura com cobertura de chocolate">
+  <!-- Prato -->
+  <ellipse cx="160" cy="206" rx="140" ry="22" fill="#ffffff"/>
+  <ellipse cx="160" cy="202" rx="118" ry="14" fill="#f3e3d3"/>
+
+  <!-- Lateral do bolo (massa de cenoura) -->
+  <path d="M60 104 L60 192 Q60 198 66 198 L254 198 Q260 198 260 192 L260 104 Z" fill="#f0882e"/>
+  <!-- Furinhos da massa -->
+  <g fill="#d96f17">
+    <circle cx="88" cy="140" r="4"/><circle cx="120" cy="168" r="3"/><circle cx="150" cy="132" r="3.5"/>
+    <circle cx="182" cy="176" r="4"/><circle cx="212" cy="146" r="3"/><circle cx="238" cy="178" r="3.5"/>
+    <circle cx="104" cy="184" r="2.5"/><circle cx="196" cy="122" r="2.5"/><circle cx="76" cy="168" r="2.5"/>
+  </g>
+
+  <!-- Cobertura de chocolate escorrendo -->
+  <path d="M52 92 Q52 80 64 80 L256 80 Q268 80 268 92 L268 112
+           Q268 120 262 120 Q256 120 256 128 L256 140 Q256 148 248 148 Q240 148 240 140 L240 122
+           Q240 116 232 116 L206 116 Q198 116 198 124 L198 152 Q198 162 188 162 Q178 162 178 152 L178 122
+           Q178 116 170 116 L140 116 Q132 116 132 124 L132 134 Q132 142 124 142 Q116 142 116 134 L116 122
+           Q116 116 108 116 L90 116 Q82 116 82 124 L82 160 Q82 170 72 170 Q62 170 62 160 L62 122
+           Q62 116 56 114 Q52 112 52 106 Z" fill="#3e2419"/>
+  <!-- Brilho da cobertura -->
+  <path d="M74 90 L150 90" stroke="#6b4334" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Raminho de cenoura decorativo -->
+  <path d="M214 80 Q206 52 214 34" stroke="#4f8a3c" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M214 80 Q228 56 244 46" stroke="#4f8a3c" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M214 80 Q196 62 184 58" stroke="#4f8a3c" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg>

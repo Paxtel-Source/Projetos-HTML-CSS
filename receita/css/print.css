@@ -1,0 +1,110 @@
+/* ==========================================================
+   Versão para impressão
+   Este arquivo só é usado quando a página é impressa
+   (veja media="print" no <link> do index.html).
+   ========================================================== */
+
+@page {
+  margin: 1.5cm;
+}
+
+/* Economiza tinta: tudo em preto sobre branco */
+body {
+  color: #000;
+  background: #fff;
+  font-size: 11pt;
+}
+
+/* Esconde o que não faz sentido no papel */
+.pular,
+.topo__imagem,
+.dica,
+.rodape,
+.lista-checagem input {
+  display: none;
+}
+
+.topo {
+  display: block;
+  padding: 0 0 12pt;
+}
+
+.topo__titulo {
+  font-size: 22pt;
+}
+
+.topo__descricao {
+  color: #000;
+}
+
+.resumo__item {
+  border: 1px solid #000;
+  border-left-width: 4px;
+}
+
+.resumo dt {
+  color: #000;
+}
+
+/* No papel, tudo em uma coluna só, na ordem de leitura */
+.conteudo {
+  display: block;
+  padding: 0;
+}
+
+.preparo,
+.nutricional {
+  margin-top: 18pt;
+}
+
+.ingredientes {
+  position: static;
+  padding: 0;
+}
+
+h3 {
+  color: #000;
+}
+
+/* Ingredientes viram uma lista com marcadores para riscar à mão */
+.lista-checagem li::before {
+  content: "\2610  "; /* caixinha vazia ☐ */
+}
+
+.lista-checagem label {
+  display: inline;
+  text-decoration: none;
+  color: #000;
+}
+
+.passos li::before {
+  color: #000;
+  background: none;
+  border: 1.5px solid #000;
+}
+
+.passos li:not(:last-child)::after,
+.nota {
+  background: none;
+}
+
+.nota {
+  border: 1px dashed #000;
+}
+
+thead th {
+  color: #000;
+  background: none;
+  border-bottom: 2px solid #000;
+}
+
+tbody tr:nth-child(even) {
+  background: none;
+}
+
+/* Evita cortar um passo ou a tabela no meio, entre duas páginas */
+.passos li,
+table,
+.nota {
+  break-inside: avoid;
+}

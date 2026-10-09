@@ -1,0 +1,211 @@
+/* ==========================================================
+   Cartão de Visita Digital
+   Visual inspirado em papel de planta técnica (blueprint):
+   fundo azul quadriculado e um cartão claro com destaque âmbar.
+   ========================================================== */
+
+/* ---------- Variáveis (troque aqui para mudar o tema) ---------- */
+:root {
+  --azul-tinta: #16324f;
+  --azul-linha: #23466b;
+  --papel: #f4f7fb;
+  --texto: #12263f;
+  --texto-suave: #4b5d73;
+  --ambar: #f2b705;
+
+  --fonte-titulo: "Bricolage Grotesque", system-ui, sans-serif;
+  --fonte-texto: "IBM Plex Sans", system-ui, sans-serif;
+
+  --raio-cartao: 20px;
+  --raio-botao: 12px;
+}
+
+/* ---------- Reset básico ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- Fundo quadriculado ---------- */
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--texto);
+  background-color: var(--azul-tinta);
+  /* Duas grades sobrepostas: uma fina a cada 24px e uma grossa a cada 120px */
+  background-image:
+    linear-gradient(var(--azul-linha) 2px, transparent 2px),
+    linear-gradient(90deg, var(--azul-linha) 2px, transparent 2px),
+    linear-gradient(var(--azul-linha) 1px, transparent 1px),
+    linear-gradient(90deg, var(--azul-linha) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+}
+
+/* ---------- Cartão ---------- */
+.cartao {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 32px 28px;
+  background: var(--papel);
+  border-radius: var(--raio-cartao);
+  /* Sombra "dura", deslocada, como um cartão de papel sobre a mesa */
+  box-shadow: 10px 10px 0 var(--ambar);
+  animation: chegar 0.6s ease-out both;
+}
+
+.cartao__topo {
+  text-align: center;
+}
+
+.cartao__foto {
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 4px solid var(--papel);
+  outline: 3px solid var(--azul-tinta);
+}
+
+.cartao__nome {
+  font-family: var(--fonte-titulo);
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.cartao__funcao {
+  margin-top: 6px;
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+
+.cartao__bio {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+/* ---------- Etiquetas de tecnologias ---------- */
+.cartao__tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.cartao__tags li {
+  padding: 2px 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1.5px solid var(--azul-tinta);
+  border-radius: 999px;
+}
+
+/* ---------- Botões de link ---------- */
+.links {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  font-weight: 500;
+  color: var(--papel);
+  text-decoration: none;
+  background: var(--azul-tinta);
+  border-radius: var(--raio-botao);
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.link__icone {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.link:hover {
+  color: var(--texto);
+  background: var(--ambar);
+  transform: translateX(4px);
+}
+
+/* Foco visível para quem navega pelo teclado (tecla Tab) */
+.link:focus-visible,
+.cartao__rodape a:focus-visible {
+  outline: 3px solid var(--ambar);
+  outline-offset: 3px;
+}
+
+/* ---------- Rodapé ---------- */
+.cartao__rodape {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.cartao__rodape a {
+  color: var(--texto-suave);
+}
+
+/* ---------- Animação de entrada ---------- */
+@keyframes chegar {
+  from {
+    opacity: 0;
+    transform: translateY(16px) rotate(-1.5deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Respeita quem configurou o sistema para reduzir animações */
+@media (prefers-reduced-motion: reduce) {
+  .cartao {
+    animation: none;
+  }
+
+  .link {
+    transition: none;
+  }
+}
+
+/* ---------- Celulares pequenos ---------- */
+@media (max-width: 400px) {
+  .cartao {
+    padding: 32px 20px 24px;
+    box-shadow: 6px 6px 0 var(--ambar);
+  }
+
+  .cartao__nome {
+    font-size: 2rem;
+  }
+}

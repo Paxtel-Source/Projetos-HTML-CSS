@@ -1,0 +1,274 @@
+/* ==========================================================
+   Currículo Online
+   A página imita uma folha A4 sobre a mesa: coluna lateral
+   verde-petróleo e conteúdo principal em texto serifado.
+   ========================================================== */
+
+:root {
+  --petroleo: #0f5257;
+  --petroleo-claro: #d7e8e6;
+  --mesa: #dfe4e6;
+  --folha: #ffffff;
+  --texto: #1d2a2c;
+  --texto-suave: #55666a;
+  --destaque: #f4a259;
+
+  --fonte-titulo: "Archivo", "Arial Narrow", sans-serif;
+  --fonte-texto: "Source Serif 4", Georgia, serif;
+}
+
+/* ---------- Reset básico ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--mesa);
+  padding: 24px 16px 56px;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 2px;
+}
+
+/* Esconde da tela, mas mantém para leitores de tela */
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- Barra de ações acima da folha ---------- */
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  max-width: 900px;
+  margin: 0 auto 16px;
+  font-family: var(--fonte-titulo);
+  font-size: 0.875rem;
+  color: var(--texto-suave);
+}
+
+kbd {
+  padding: 0 5px;
+  font-family: inherit;
+  background: var(--folha);
+  border: 1px solid #b5c0c3;
+  border-radius: 4px;
+}
+
+/* ---------- A folha ---------- */
+.folha {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  max-width: 900px;
+  min-height: 1200px;
+  margin: 0 auto;
+  background: var(--folha);
+  box-shadow: 0 1px 2px rgba(15, 82, 87, 0.15), 0 12px 32px rgba(15, 82, 87, 0.12);
+}
+
+/* ---------- Coluna lateral ---------- */
+.lateral {
+  padding: 48px 32px;
+  color: var(--folha);
+  background: var(--petroleo);
+}
+
+.identidade {
+  padding-bottom: 28px;
+  border-bottom: 3px solid var(--destaque);
+}
+
+/* O nome usa a largura condensada da fonte Archivo */
+.identidade__nome {
+  font-family: var(--fonte-titulo);
+  font-size: 3rem;
+  font-weight: 800;
+  font-stretch: 62%;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.identidade__cargo {
+  margin-top: 12px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.0625rem;
+  color: var(--petroleo-claro);
+}
+
+.lateral h2 {
+  margin: 32px 0 12px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  font-stretch: 100%;
+  color: var(--destaque);
+}
+
+.contato li + li,
+.idiomas li + li {
+  margin-top: 10px;
+}
+
+.contato li {
+  font-size: 0.9375rem;
+  overflow-wrap: anywhere;
+}
+
+.contato__tipo {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 0.8125rem;
+  color: var(--petroleo-claro);
+}
+
+/* Barras de habilidade: a largura vem da variável --nivel (1 a 5) */
+.habilidades li {
+  display: grid;
+  gap: 4px;
+}
+
+.habilidades li + li {
+  margin-top: 12px;
+}
+
+.habilidades__nome {
+  font-size: 0.9375rem;
+}
+
+.barra {
+  height: 8px;
+  border-radius: 4px;
+  background:
+    linear-gradient(var(--destaque), var(--destaque)) left / calc(var(--nivel) * 20%) 100% no-repeat,
+    rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Conteúdo principal ---------- */
+.principal {
+  padding: 48px 48px 56px;
+}
+
+.principal section + section {
+  margin-top: 36px;
+}
+
+.principal h2 {
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-stretch: 75%;
+  color: var(--petroleo);
+  border-bottom: 2px solid var(--petroleo-claro);
+}
+
+.principal p {
+  max-width: 62ch;
+}
+
+.item + .item {
+  margin-top: 22px;
+}
+
+.item__cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+}
+
+.item h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.item__link,
+.item__periodo {
+  font-family: var(--fonte-titulo);
+  font-size: 0.875rem;
+  color: var(--petroleo);
+}
+
+.item p {
+  margin-top: 4px;
+}
+
+.item__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.item__tags li {
+  padding: 1px 10px;
+  font-family: var(--fonte-titulo);
+  font-size: 0.8125rem;
+  color: var(--petroleo);
+  background: var(--petroleo-claro);
+  border-radius: 4px;
+}
+
+.cursos li + li {
+  margin-top: 6px;
+}
+
+/* ---------- Responsivo: celulares ---------- */
+@media (max-width: 720px) {
+  body {
+    padding: 16px 0 32px;
+  }
+
+  .acoes {
+    padding: 0 16px;
+  }
+
+  .folha {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .lateral,
+  .principal {
+    padding: 32px 20px;
+  }
+
+  .identidade__nome {
+    font-size: 2.75rem;
+  }
+}

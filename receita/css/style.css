@@ -1,0 +1,363 @@
+/* ==========================================================
+   Página de Receita
+   Cores tiradas do próprio bolo: laranja da cenoura,
+   marrom do chocolate e um fundo pêssego bem claro.
+   ========================================================== */
+
+:root {
+  --cenoura: #e8711a;
+  --cenoura-clara: #fde9d7;
+  --chocolate: #3e2419;
+  --chocolate-suave: #6b4c3f;
+  --fundo: #fff7f0;
+  --branco: #ffffff;
+  --folha: #4f8a3c;
+
+  --fonte-titulo: "Young Serif", Georgia, serif;
+  --fonte-texto: "Nunito Sans", system-ui, sans-serif;
+
+  --largura-maxima: 1080px;
+}
+
+/* ---------- Reset básico ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--chocolate);
+  background: var(--fundo);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+a {
+  color: var(--chocolate);
+}
+
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--cenoura);
+  outline-offset: 3px;
+}
+
+/* Link "pular para o conteúdo": invisível até receber foco pelo teclado */
+.pular {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  padding: 8px 16px;
+  background: var(--chocolate);
+  color: var(--branco);
+  border-radius: 8px;
+}
+
+.pular:focus {
+  top: 16px;
+}
+
+/* ---------- Topo ---------- */
+.topo {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  gap: 40px;
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 56px 24px 48px;
+}
+
+.topo__titulo {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  letter-spacing: -0.01em;
+}
+
+.topo__descricao {
+  max-width: 46ch;
+  margin-top: 16px;
+  font-size: 1.1875rem;
+  color: var(--chocolate-suave);
+}
+
+.topo__imagem {
+  width: 100%;
+  max-width: 400px;
+  justify-self: center;
+}
+
+/* Resumo: tempo, rendimento e dificuldade */
+.resumo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.resumo__item {
+  min-width: 112px;
+  padding: 10px 16px;
+  background: var(--branco);
+  border-left: 4px solid var(--cenoura);
+  border-radius: 4px 10px 10px 4px;
+}
+
+.resumo dt {
+  font-size: 0.875rem;
+  color: var(--chocolate-suave);
+}
+
+.resumo dd {
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem;
+}
+
+/* ---------- Conteúdo em duas colunas ---------- */
+.conteudo {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) 1.6fr;
+  grid-template-areas:
+    "ingredientes preparo"
+    "ingredientes nutricional";
+  align-items: start;
+  gap: 32px 48px;
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+.ingredientes {
+  grid-area: ingredientes;
+  padding: 28px;
+  background: var(--branco);
+  border-radius: 16px;
+  /* Fica "grudado" na tela enquanto você rola o modo de preparo */
+  position: sticky;
+  top: 16px;
+}
+
+.preparo {
+  grid-area: preparo;
+}
+
+.nutricional {
+  grid-area: nutricional;
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+h3 {
+  margin-top: 24px;
+  font-size: 1.25rem;
+  color: var(--cenoura);
+}
+
+.dica {
+  margin-top: 4px;
+  font-size: 0.9375rem;
+  color: var(--chocolate-suave);
+}
+
+/* ---------- Lista de ingredientes com checkbox (só CSS) ---------- */
+.lista-checagem {
+  margin-top: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-checagem li + li {
+  border-top: 1px dashed var(--cenoura-clara);
+}
+
+.lista-checagem label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.lista-checagem input {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  accent-color: var(--folha);
+  cursor: pointer;
+}
+
+/* :has() permite estilizar o label quando o checkbox dentro dele está marcado */
+.lista-checagem label:has(input:checked) {
+  color: var(--chocolate-suave);
+  text-decoration: line-through;
+  text-decoration-color: var(--folha);
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- Passos numerados ---------- */
+.passos {
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+  counter-reset: passo;
+}
+
+.passos li {
+  position: relative;
+  padding: 0 0 20px 56px;
+  counter-increment: passo;
+}
+
+/* O número de cada passo é gerado pelo CSS com um contador */
+.passos li::before {
+  content: counter(passo);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.125rem;
+  color: var(--branco);
+  background: var(--cenoura);
+  border-radius: 50%;
+}
+
+/* Linha ligando um passo ao próximo */
+.passos li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 40px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--cenoura-clara);
+}
+
+.nota {
+  margin-top: 8px;
+  padding: 16px 20px;
+  background: var(--cenoura-clara);
+  border-radius: 12px;
+}
+
+/* ---------- Tabela nutricional ---------- */
+table {
+  width: 100%;
+  max-width: 480px;
+  margin-top: 12px;
+  border-collapse: collapse;
+  background: var(--branco);
+  border: 2px solid var(--chocolate);
+}
+
+caption {
+  padding-bottom: 8px;
+  text-align: left;
+  font-size: 0.9375rem;
+  color: var(--chocolate-suave);
+}
+
+th,
+td {
+  padding: 10px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--cenoura-clara);
+}
+
+thead th {
+  color: var(--branco);
+  background: var(--chocolate);
+}
+
+tbody th {
+  font-weight: 400;
+}
+
+td {
+  text-align: right;
+  font-weight: 700;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--fundo);
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  padding: 32px 24px 48px;
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--chocolate-suave);
+  border-top: 1px solid var(--cenoura-clara);
+}
+
+.rodape p + p {
+  margin-top: 8px;
+}
+
+kbd {
+  padding: 1px 6px;
+  font-family: inherit;
+  font-size: 0.875em;
+  background: var(--branco);
+  border: 1px solid var(--chocolate-suave);
+  border-radius: 4px;
+}
+
+/* ---------- Responsivo: tablets e celulares ---------- */
+@media (max-width: 800px) {
+  .topo {
+    grid-template-columns: 1fr;
+    padding-top: 32px;
+  }
+
+  .topo__imagem {
+    grid-row: 1;
+    max-width: 260px;
+  }
+
+  .conteudo {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "ingredientes"
+      "preparo"
+      "nutricional";
+  }
+
+  .ingredientes {
+    position: static;
+  }
+}

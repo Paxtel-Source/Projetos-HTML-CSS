@@ -1,7 +1,7 @@
 /* ==========================================================
    Versão para impressão / PDF
-   Gera uma folha A4 sem margens extras, mantendo as cores da
-   coluna lateral (para quem salva como PDF).
+   Gera uma folha A4 sem margens, mantendo as cores e o
+   degradê, como na versão original em PDF.
    ========================================================== */
 
 @page {
@@ -23,24 +23,6 @@ html {
 body {
   padding: 0;
   background: #fff;
-  font-size: 9.5pt;
-  line-height: 1.45;
-}
-
-.principal section + section {
-  margin-top: 16pt;
-}
-
-.lateral h2 {
-  margin-top: 18pt;
-}
-
-.item + .item {
-  margin-top: 10pt;
-}
-
-.item__tags {
-  margin-top: 5pt;
 }
 
 .acoes {
@@ -50,35 +32,52 @@ body {
 .folha {
   max-width: none;
   /* Um pouco menos que 297mm, para o navegador não criar uma página em branco */
-  min-height: 296mm;
+  height: 296mm;
+  min-height: 0;
+  overflow: hidden;
   box-shadow: none;
-  grid-template-columns: 70mm 1fr;
 }
 
 .lateral {
-  padding: 14mm 9mm;
+  padding: 8mm 10mm;
 }
 
-.principal {
-  padding: 14mm 12mm;
+.nome {
+  padding: 7mm 6mm 6mm;
 }
 
-.identidade__nome {
-  font-size: 30pt;
+.corpo {
+  padding: 5mm 8mm;
 }
 
-/* Na impressão os links não são clicáveis: mostra o endereço */
-.item__link::after {
-  content: " (" attr(href) ")";
-  font-size: 8pt;
-  overflow-wrap: anywhere;
+.corpo > section {
+  margin-top: 7mm;
 }
 
-.item__link {
+.bloco + .bloco {
+  margin-top: 8mm;
+}
+
+a:hover {
   text-decoration: none;
 }
 
-.item,
-.principal section {
+/* A folha A4 é estreita: mantém Competências ao lado do Objetivo */
+.resumo {
+  grid-template-columns: 1fr auto;
+}
+
+.resumo__direita {
+  padding: 0 0 0 14px;
+  border-top: 0;
+  border-left: 2px solid var(--linha);
+}
+
+.nome h1 {
+  font-size: 2rem;
+}
+
+.experiencia,
+.projeto {
   break-inside: avoid;
 }

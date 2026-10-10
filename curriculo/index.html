@@ -3,166 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Currículo de Gabriel Ramos, estudante de programação: projetos em C, Python, HTML e CSS.">
+  <meta name="description" content="Currículo de Gabriel Ramos, estudante de Engenharia de Software em busca de estágio em desenvolvimento de sistemas.">
   <title>Gabriel Ramos | Currículo</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/print.css" media="print">
 </head>
 <body>
   <!--
-    COMO EDITAR: troque os textos entre colchetes, como [Nome do curso],
-    pelos seus dados. Os níveis das habilidades são definidos pelo
-    atributo style="--nivel: 3" (de 1 a 5).
+    COMO EDITAR: os textos entre colchetes, como [manhã/tarde], ainda
+    precisam ser preenchidos. Para trocar a foto, substitua img/foto.jpg.
   -->
+
+  <!-- Ícones usados na página, desenhados uma vez e reaproveitados com <use> -->
+  <svg class="icones" aria-hidden="true">
+    <symbol id="i-pessoa" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></symbol>
+    <symbol id="i-telefone" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></symbol>
+    <symbol id="i-email" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5V19a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5Zm2 1.2V18h14v-7.3l-7 4.3-7-4.3Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M5 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM3.2 8.6h3.6V21H3.2V8.6Zm6 0h3.4v1.7h.1c.5-.9 1.7-1.9 3.4-1.9 3.7 0 4.3 2.4 4.3 5.5V21h-3.6v-6.3c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9.2V8.6Z"/></symbol>
+    <symbol id="i-codigo" viewBox="0 0 24 24"><path d="M8.3 6.3 2.6 12l5.7 5.7 1.4-1.4L5.4 12l4.3-4.3-1.4-1.4Zm7.4 0-1.4 1.4 4.3 4.3-4.3 4.3 1.4 1.4 5.7-5.7-5.7-5.7Zm-2.9-2.1-3.6 15.4 1.9.4 3.6-15.4-1.9-.4Z"/></symbol>
+    <symbol id="i-local" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
+    <symbol id="i-formatura" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3Zm-6 9.2V16c0 1.7 2.7 4 6 4s6-2.3 6-4v-3.8l-6 3.3-6-3.3Z"/></symbol>
+    <symbol id="i-alvo" viewBox="0 0 24 24"><path d="M11 1h2v3.1A8 8 0 0 1 19.9 11H23v2h-3.1A8 8 0 0 1 13 19.9V23h-2v-3.1A8 8 0 0 1 4.1 13H1v-2h3.1A8 8 0 0 1 11 4.1V1Zm1 5a6 6 0 1 0 0 12 6 6 0 0 0 0-12Zm0 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v4.6l3.5 2.1-1 1.7L11 12.7V7h2Z"/></symbol>
+    <symbol id="i-maleta" viewBox="0 0 24 24"><path d="M9 3h6a2 2 0 0 1 2 2v1h4a1 1 0 0 1 1 1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1h4V5a2 2 0 0 1 2-2Zm0 3h6V5H9v1ZM4 8v4h7v-1h2v1h7V8H4Zm16 6h-7v1h-2v-1H4v5h16v-5Z"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><path d="M3 3h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-8v2h4v2H7v-2h4v-2H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm1 2v10h16V5H4Z"/></symbol>
+  </svg>
+
   <p class="acoes">
     <a href="../">Outros projetos</a>
     <span>Para salvar em PDF, use <kbd>Ctrl</kbd> + <kbd>P</kbd> e escolha "Salvar como PDF".</span>
   </p>
 
   <main class="folha">
+    <!-- ================= COLUNA LATERAL ================= -->
     <aside class="lateral">
-      <header class="identidade">
-        <h1 class="identidade__nome">Gabriel Ramos</h1>
-        <p class="identidade__cargo">Estudante de programação</p>
-      </header>
+      <img class="lateral__foto" src="img/foto.jpg" alt="Foto de Gabriel Ramos" width="297" height="330">
 
-      <section aria-labelledby="titulo-contato">
-        <h2 id="titulo-contato">Contato</h2>
+      <section class="bloco" aria-labelledby="titulo-contato">
+        <h2 class="titulo" id="titulo-contato">
+          <svg class="titulo__icone" aria-hidden="true"><use href="#i-pessoa"/></svg>
+          Contato
+        </h2>
         <ul class="contato">
           <li>
-            <span class="contato__tipo">E-mail</span>
-            <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a>
+            <svg class="contato__icone" aria-hidden="true"><use href="#i-telefone"/></svg>
+            <a href="tel:+5519991090790"><span class="visualmente-oculto">Telefone: </span>(19)&nbsp;99109&#8209;0790</a>
           </li>
           <li>
-            <span class="contato__tipo">GitHub</span>
-            <a href="https://github.com/Paxtel-Source">github.com/Paxtel-Source</a>
+            <svg class="contato__icone" aria-hidden="true"><use href="#i-email"/></svg>
+            <a href="mailto:gabrielramos053@outlook.com"><span class="visualmente-oculto">E-mail: </span>gabrielramos053@outlook.com</a>
           </li>
           <li>
-            <span class="contato__tipo">Localização</span>
-            [Cidade] – [UF]
+            <svg class="contato__icone" aria-hidden="true"><use href="#i-linkedin"/></svg>
+            <a href="https://www.linkedin.com/in/gabriel-ramos"><span class="visualmente-oculto">LinkedIn: </span>linkedin.com/in/gabriel-ramos</a>
+          </li>
+          <li>
+            <svg class="contato__icone" aria-hidden="true"><use href="#i-codigo"/></svg>
+            <a href="https://github.com/Paxtel-Source"><span class="visualmente-oculto">GitHub: </span>github.com/Paxtel-Source</a>
+          </li>
+          <li>
+            <svg class="contato__icone" aria-hidden="true"><use href="#i-local"/></svg>
+            <span><span class="visualmente-oculto">Cidade: </span>Aguaí – SP</span>
+          </li>
+          <li>
+            <svg class="contato__icone" aria-hidden="true"><use href="#i-pessoa"/></svg>
+            <span><span class="visualmente-oculto">Idade: </span>19 anos</span>
           </li>
         </ul>
       </section>
 
-      <section aria-labelledby="titulo-habilidades">
-        <h2 id="titulo-habilidades">Habilidades</h2>
-        <ul class="habilidades">
-          <li style="--nivel: 3">
-            <span class="habilidades__nome">C</span>
-            <span class="barra" aria-hidden="true"></span>
-            <span class="visualmente-oculto">nível 3 de 5</span>
-          </li>
-          <li style="--nivel: 3">
-            <span class="habilidades__nome">Python</span>
-            <span class="barra" aria-hidden="true"></span>
-            <span class="visualmente-oculto">nível 3 de 5</span>
-          </li>
-          <li style="--nivel: 3">
-            <span class="habilidades__nome">HTML</span>
-            <span class="barra" aria-hidden="true"></span>
-            <span class="visualmente-oculto">nível 3 de 5</span>
-          </li>
-          <li style="--nivel: 3">
-            <span class="habilidades__nome">CSS</span>
-            <span class="barra" aria-hidden="true"></span>
-            <span class="visualmente-oculto">nível 3 de 5</span>
-          </li>
-          <li style="--nivel: 2">
-            <span class="habilidades__nome">Git e GitHub</span>
-            <span class="barra" aria-hidden="true"></span>
-            <span class="visualmente-oculto">nível 2 de 5</span>
-          </li>
-        </ul>
-      </section>
+      <section class="bloco" aria-labelledby="titulo-formacao">
+        <h2 class="titulo" id="titulo-formacao">
+          <svg class="titulo__icone" aria-hidden="true"><use href="#i-formatura"/></svg>
+          Formação
+        </h2>
 
-      <section aria-labelledby="titulo-idiomas">
-        <h2 id="titulo-idiomas">Idiomas</h2>
-        <ul class="idiomas">
-          <li><strong>Português</strong> nativo</li>
-          <li><strong>Inglês</strong> [nível]</li>
-        </ul>
+        <article class="formacao">
+          <h3>Ensino Superior</h3>
+          <p class="formacao__local">UNIFAE – Engenharia de Software</p>
+          <p>Cursando 2º semestre, previsão de conclusão: [2030]</p>
+        </article>
+
+        <article class="formacao">
+          <h3>Informática Profissional</h3>
+          <p class="formacao__local">Grupo Data Center</p>
+          <p><time datetime="2025">2025</time> – <time datetime="2026">2026</time></p>
+        </article>
+
+        <article class="formacao">
+          <h3>Ensino Médio Completo</h3>
+          <p class="formacao__local">Colégio Deltha Objetivo</p>
+          <p>Concluído em <time datetime="2024">2024</time></p>
+        </article>
+
+        <article class="formacao">
+          <h3>Inglês – Nível [Intermediário]</h3>
+          <p class="formacao__local">Kumon</p>
+          <p><time datetime="2017">2017</time> – <time datetime="2020">2020</time></p>
+        </article>
       </section>
     </aside>
 
+    <!-- ================= CONTEÚDO PRINCIPAL ================= -->
     <div class="principal">
-      <section aria-labelledby="titulo-sobre">
-        <h2 id="titulo-sobre">Sobre mim</h2>
-        <p>
-          Estudante de programação construindo uma base sólida nos fundamentos:
-          estruturas de dados e arquivos em C, automação e testes em Python e
-          páginas acessíveis com HTML e CSS. Todos os meus projetos estão
-          publicados no GitHub, com documentação e instruções de uso.
-        </p>
-      </section>
+      <header class="nome">
+        <h1>Gabriel Henrique<br>Bruno Ramos</h1>
+      </header>
 
-      <section aria-labelledby="titulo-projetos">
-        <h2 id="titulo-projetos">Projetos</h2>
+      <div class="corpo">
+        <div class="resumo">
+          <div class="resumo__esquerda">
+            <section aria-labelledby="titulo-objetivo">
+              <h2 class="titulo" id="titulo-objetivo">
+                <svg class="titulo__icone" aria-hidden="true"><use href="#i-alvo"/></svg>
+                Objetivo
+              </h2>
+              <p>
+                Estudante de Engenharia de Software em busca de estágio em
+                desenvolvimento de sistemas, para aplicar e ampliar meus
+                conhecimentos em programação e banco de dados.
+              </p>
+            </section>
 
-        <article class="item">
-          <header class="item__cabecalho">
-            <h3>Projetos em C</h3>
-            <a class="item__link" href="https://github.com/Paxtel-Source/projetos-c">ver no GitHub</a>
-          </header>
-          <p>
-            Seis programas de terminal: calculadora, agenda de contatos, jogo da velha,
-            conversor de bases numéricas, sistema escolar e compactador de arquivos RLE.
-          </p>
-          <ul class="item__tags">
-            <li>structs</li><li>ponteiros</li><li>arquivos binários</li><li>Makefile</li>
+            <section aria-labelledby="titulo-disponibilidade">
+              <h2 class="titulo" id="titulo-disponibilidade">
+                <svg class="titulo__icone" aria-hidden="true"><use href="#i-relogio"/></svg>
+                Disponibilidade
+              </h2>
+              <p>Estágio no período [manhã/tarde], com início imediato.</p>
+            </section>
+          </div>
+
+          <section class="resumo__direita" aria-labelledby="titulo-competencias">
+            <h2 class="titulo" id="titulo-competencias">Competências</h2>
+            <ul class="lista">
+              <li>Comunicativo</li>
+              <li>Resiliente</li>
+              <li>Confiável</li>
+            </ul>
+          </section>
+        </div>
+
+        <section aria-labelledby="titulo-experiencia">
+          <h2 class="titulo" id="titulo-experiencia">
+            <svg class="titulo__icone" aria-hidden="true"><use href="#i-maleta"/></svg>
+            Experiência de trabalho
+          </h2>
+
+          <article class="experiencia">
+            <p class="experiencia__periodo">
+              <time datetime="2024">2024</time>
+              <span aria-hidden="true">–</span><span class="visualmente-oculto">até</span>
+              <time datetime="2026">2026</time>
+            </p>
+            <div class="experiencia__conteudo">
+              <h3>Arco Íris Tintas</h3>
+              <p class="experiencia__cargo">Jovem Aprendiz – Ajudante Geral</p>
+              <ul class="lista lista--pequena">
+                <li><strong>Estoque:</strong> conferência, organização e controle de entrada e saída de mercadorias.</li>
+                <li><strong>Vendas:</strong> atendimento ao cliente e apoio na separação e venda de produtos.</li>
+                <li><strong>Administrativo:</strong> organização de documentos e apoio às rotinas do escritório.</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        <section aria-labelledby="titulo-tecnicas">
+          <h2 class="titulo" id="titulo-tecnicas">
+            <svg class="titulo__icone" aria-hidden="true"><use href="#i-monitor"/></svg>
+            Competências técnicas
+          </h2>
+          <ul class="lista">
+            <li><strong>Pacote Office:</strong> Word, Excel, PowerPoint, Access, Canva e WordPress</li>
+            <li><strong>Ferramentas de IA generativa:</strong> Claude</li>
+            <li><strong>Programação:</strong> C, Python, JavaScript, HTML e CSS</li>
+            <li><strong>GitHub:</strong> iniciante</li>
           </ul>
-        </article>
+        </section>
 
-        <article class="item">
-          <header class="item__cabecalho">
-            <h3>Projetos em Python</h3>
-            <a class="item__link" href="https://github.com/Paxtel-Source/Projetos-Python">ver no GitHub</a>
-          </header>
-          <p>
-            Gerador de senhas seguras com medidor de força e controle de gastos pessoais
-            com resumo mensal e gráfico por categoria. Testes rodando no GitHub Actions.
+        <section aria-labelledby="titulo-projetos">
+          <h2 class="titulo" id="titulo-projetos">
+            <svg class="titulo__icone" aria-hidden="true"><use href="#i-codigo"/></svg>
+            Projetos
+          </h2>
+          <p class="projetos__intro">
+            Diversas aplicações em C e Python para auxiliar em tarefas específicas ou
+            para entretenimento, desenvolvidas com VS Code, Dev-C++ e Claude Code.
           </p>
-          <ul class="item__tags">
-            <li>pytest</li><li>argparse</li><li>JSON</li><li>matplotlib</li>
-          </ul>
-        </article>
 
-        <article class="item">
-          <header class="item__cabecalho">
-            <h3>Projetos em HTML e CSS</h3>
-            <a class="item__link" href="https://paxtel-source.github.io/Projetos-HTML-CSS/">ver online</a>
-          </header>
-          <p>
-            Cartão de visita digital, página de receita com versão para impressão e
-            este currículo, todos responsivos e publicados no GitHub Pages.
+          <article class="projeto">
+            <h3><a href="https://github.com/Paxtel-Source/projetos-c">Projetos em C</a></h3>
+            <p>Calculadora, agenda de contatos, jogo da velha, conversor de bases, sistema escolar e compactador de arquivos RLE.</p>
+          </article>
+
+          <article class="projeto">
+            <h3><a href="https://github.com/Paxtel-Source/Projetos-Python">Projetos em Python</a></h3>
+            <p>Gerador de senhas seguras e controle de gastos pessoais com gráfico, ambos com testes automatizados.</p>
+          </article>
+
+          <article class="projeto">
+            <h3><a href="https://paxtel-source.github.io/Projetos-HTML-CSS/">Projetos em HTML e CSS</a></h3>
+            <p>Cartão de visita, página de receita e este currículo, publicados no GitHub Pages.</p>
+          </article>
+
+          <p class="projetos__perfil">
+            Todos os repositórios: <a href="https://github.com/Paxtel-Source">github.com/Paxtel-Source</a>
           </p>
-          <ul class="item__tags">
-            <li>HTML semântico</li><li>Flexbox</li><li>CSS Grid</li><li>@media print</li>
-          </ul>
-        </article>
-      </section>
-
-      <section aria-labelledby="titulo-formacao">
-        <h2 id="titulo-formacao">Formação</h2>
-        <article class="item">
-          <header class="item__cabecalho">
-            <h3>[Nome do curso]</h3>
-            <p class="item__periodo"><time datetime="2025">[Ano de início]</time> – [Previsão de conclusão]</p>
-          </header>
-          <p>[Instituição de ensino]</p>
-        </article>
-      </section>
-
-      <section aria-labelledby="titulo-cursos">
-        <h2 id="titulo-cursos">Cursos complementares</h2>
-        <ul class="cursos">
-          <li><strong>[Nome do curso]</strong>, [Plataforma ou escola], [ano]</li>
-          <li><strong>[Nome do curso]</strong>, [Plataforma ou escola], [ano]</li>
-        </ul>
-      </section>
+        </section>
+      </div>
     </div>
   </main>
 </body>

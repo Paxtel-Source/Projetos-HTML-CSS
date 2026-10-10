@@ -1,20 +1,23 @@
 /* ==========================================================
    Currículo Online
-   A página imita uma folha A4 sobre a mesa: coluna lateral
-   verde-petróleo e conteúdo principal em texto serifado.
+   Visual baseado na versão em PDF do currículo: coluna lateral
+   verde em degradê com a foto, nome em uma faixa verde
+   arredondada e conteúdo sobre um fundo cinza em degradê.
    ========================================================== */
 
 :root {
-  --petroleo: #0f5257;
-  --petroleo-claro: #d7e8e6;
-  --mesa: #dfe4e6;
-  --folha: #ffffff;
-  --texto: #1d2a2c;
-  --texto-suave: #55666a;
-  --destaque: #f4a259;
+  --verde: #80d95b;
+  --verde-topo: #7ed06e;
+  --verde-claro: #d6fdcd;
+  --cinza-topo: #f7f8f7;
+  --cinza-base: #c9c9c9;
+  --icone-fundo: #e3dcd8;
+  --texto: #2b312e;
+  --texto-suave: #4a504d;
+  --linha: #c8875a;   /* linha marrom-alaranjada da linha do tempo */
+  --mesa: #e9ecea;
 
-  --fonte-titulo: "Archivo", "Arial Narrow", sans-serif;
-  --fonte-texto: "Source Serif 4", Georgia, serif;
+  --fonte: "Poppins", "Segoe UI", system-ui, sans-serif;
 }
 
 /* ---------- Reset básico ---------- */
@@ -38,10 +41,16 @@ ul {
   list-style: none;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 body {
-  font-family: var(--fonte-texto);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-family: var(--fonte);
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: var(--texto);
   background: var(--mesa);
   padding: 24px 16px 56px;
@@ -49,11 +58,21 @@ body {
 
 a {
   color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 a:focus-visible {
-  outline: 3px solid var(--destaque);
+  outline: 3px solid var(--linha);
   outline-offset: 2px;
+}
+
+/* A "biblioteca" de ícones SVG não aparece na página */
+.icones {
+  display: none;
 }
 
 /* Esconde da tela, mas mantém para leitores de tela */
@@ -74,182 +93,290 @@ a:focus-visible {
   gap: 8px 24px;
   max-width: 900px;
   margin: 0 auto 16px;
-  font-family: var(--fonte-titulo);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--texto-suave);
+}
+
+.acoes a {
+  text-decoration: underline;
 }
 
 kbd {
   padding: 0 5px;
   font-family: inherit;
-  background: var(--folha);
-  border: 1px solid #b5c0c3;
+  background: #fff;
+  border: 1px solid #b9c0bc;
   border-radius: 4px;
 }
 
 /* ---------- A folha ---------- */
 .folha {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 37% 1fr;
   max-width: 900px;
-  min-height: 1200px;
+  min-height: 1270px;
   margin: 0 auto;
-  background: var(--folha);
-  box-shadow: 0 1px 2px rgba(15, 82, 87, 0.15), 0 12px 32px rgba(15, 82, 87, 0.12);
+  background: linear-gradient(var(--cinza-topo), var(--cinza-base));
+  box-shadow: 0 12px 32px rgba(43, 49, 46, 0.18);
+}
+
+/* ---------- Títulos com ícone ---------- */
+.titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.titulo__icone {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  fill: var(--texto);
 }
 
 /* ---------- Coluna lateral ---------- */
 .lateral {
-  padding: 48px 32px;
-  color: var(--folha);
-  background: var(--petroleo);
+  padding: 24px 32px 48px;
+  background: linear-gradient(var(--verde-topo), var(--verde-claro));
 }
 
-.identidade {
-  padding-bottom: 28px;
-  border-bottom: 3px solid var(--destaque);
+.lateral__foto {
+  width: 100%;
+  aspect-ratio: 297 / 330;
+  object-fit: cover;
 }
 
-/* O nome usa a largura condensada da fonte Archivo */
-.identidade__nome {
-  font-family: var(--fonte-titulo);
-  font-size: 3rem;
-  font-weight: 800;
-  font-stretch: 62%;
-  line-height: 0.95;
-  letter-spacing: -0.01em;
-}
-
-.identidade__cargo {
-  margin-top: 12px;
-  font-family: var(--fonte-titulo);
-  font-size: 1.0625rem;
-  color: var(--petroleo-claro);
-}
-
-.lateral h2 {
-  margin: 32px 0 12px;
-  font-family: var(--fonte-titulo);
-  font-size: 1.0625rem;
-  font-weight: 700;
-  font-stretch: 100%;
-  color: var(--destaque);
-}
-
-.contato li + li,
-.idiomas li + li {
-  margin-top: 10px;
-}
-
-.contato li {
-  font-size: 0.9375rem;
-  overflow-wrap: anywhere;
-}
-
-.contato__tipo {
-  display: block;
-  font-family: var(--fonte-titulo);
-  font-size: 0.8125rem;
-  color: var(--petroleo-claro);
-}
-
-/* Barras de habilidade: a largura vem da variável --nivel (1 a 5) */
-.habilidades li {
-  display: grid;
-  gap: 4px;
-}
-
-.habilidades li + li {
-  margin-top: 12px;
-}
-
-.habilidades__nome {
-  font-size: 0.9375rem;
-}
-
-.barra {
-  height: 8px;
-  border-radius: 4px;
-  background:
-    linear-gradient(var(--destaque), var(--destaque)) left / calc(var(--nivel) * 20%) 100% no-repeat,
-    rgba(255, 255, 255, 0.18);
-}
-
-/* ---------- Conteúdo principal ---------- */
-.principal {
-  padding: 48px 48px 56px;
-}
-
-.principal section + section {
-  margin-top: 36px;
-}
-
-.principal h2 {
-  margin-bottom: 14px;
-  padding-bottom: 6px;
-  font-family: var(--fonte-titulo);
-  font-size: 1.5rem;
-  font-weight: 800;
-  font-stretch: 75%;
-  color: var(--petroleo);
-  border-bottom: 2px solid var(--petroleo-claro);
-}
-
-.principal p {
-  max-width: 62ch;
-}
-
-.item + .item {
+.bloco {
   margin-top: 22px;
 }
 
-.item__cabecalho {
+.bloco + .bloco {
+  margin-top: 40px;
+}
+
+/* Contato: cada item tem um ícone num quadradinho */
+.contato {
+  margin-top: 14px;
+}
+
+.contato li {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 4px 16px;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.8125rem;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
-.item h3 {
-  font-family: var(--fonte-titulo);
-  font-size: 1.125rem;
+.contato li + li {
+  margin-top: 12px;
+}
+
+.contato__icone {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  flex-shrink: 0;
+  fill: var(--texto);
+  background: var(--icone-fundo);
+  border-radius: 3px;
+}
+
+/* Formação */
+.formacao {
+  margin-top: 18px;
+}
+
+.formacao h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.formacao p {
+  padding-left: 10px;
+}
+
+.formacao__local {
+  font-weight: 600;
+}
+
+/* ---------- Conteúdo principal ---------- */
+
+/* Faixa verde com o nome, arredondada do lado direito */
+.nome {
+  margin-top: 0;
+  padding: 26px 24px 24px;
+  text-align: center;
+  background: var(--verde);
+  border-radius: 0 60px 60px 0;
+}
+
+.nome h1 {
+  font-size: 2.1rem;
   font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
-.item__link,
-.item__periodo {
-  font-family: var(--fonte-titulo);
-  font-size: 0.875rem;
-  color: var(--petroleo);
+.corpo {
+  padding: 20px 28px 48px;
 }
 
-.item p {
+.corpo > section {
+  margin-top: 40px;
+}
+
+.corpo p {
+  max-width: 62ch;
+}
+
+/* Objetivo / Disponibilidade à esquerda e Competências à direita */
+.resumo {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+}
+
+.resumo__esquerda section + section {
+  margin-top: 22px;
+}
+
+.resumo__esquerda .titulo {
+  margin-bottom: 4px;
+}
+
+.resumo__esquerda p {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.resumo__direita {
+  padding-left: 14px;
+  border-left: 2px solid var(--linha);
+}
+
+/* Listas com marcador redondo */
+.lista {
+  margin-top: 10px;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.lista li + li {
   margin-top: 4px;
 }
 
-.item__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 10px;
+.resumo__direita .lista {
+  margin-top: 4px;
+  font-size: 1rem;
 }
 
-.item__tags li {
-  padding: 1px 10px;
-  font-family: var(--fonte-titulo);
+.lista--pequena {
   font-size: 0.8125rem;
-  color: var(--petroleo);
-  background: var(--petroleo-claro);
-  border-radius: 4px;
 }
 
-.cursos li + li {
-  margin-top: 6px;
+.lista--pequena li + li {
+  margin-top: 8px;
+}
+
+/* Experiência em formato de linha do tempo */
+.experiencia {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.experiencia__periodo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-top: 4px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.experiencia__conteudo {
+  padding-left: 16px;
+  border-left: 2px solid var(--linha);
+}
+
+.experiencia h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.experiencia__cargo {
+  font-size: 0.8125rem;
+}
+
+/* Projetos */
+.projetos__intro {
+  margin-top: 8px;
+  font-size: 0.8125rem;
+}
+
+.projeto {
+  margin-top: 14px;
+  padding-left: 14px;
+  border-left: 3px solid var(--verde);
+}
+
+.projeto h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.projeto h3 a {
+  text-decoration: underline;
+  text-decoration-color: var(--verde);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.projeto p {
+  font-size: 0.8125rem;
+}
+
+.projetos__perfil {
+  margin-top: 16px;
+  font-size: 0.8125rem;
+}
+
+.projetos__perfil a {
+  font-weight: 600;
+}
+
+/* ---------- Responsivo: tablets ---------- */
+@media (max-width: 820px) {
+  .lateral {
+    padding: 24px 24px 40px;
+  }
+
+  .nome h1 {
+    font-size: 1.7rem;
+  }
+
+  .resumo {
+    grid-template-columns: 1fr;
+  }
+
+  .resumo__direita {
+    padding-left: 0;
+    padding-top: 16px;
+    border-left: 0;
+    border-top: 2px solid var(--linha);
+  }
 }
 
 /* ---------- Responsivo: celulares ---------- */
-@media (max-width: 720px) {
+@media (max-width: 640px) {
   body {
     padding: 16px 0 32px;
   }
@@ -263,12 +390,22 @@ kbd {
     min-height: 0;
   }
 
-  .lateral,
+  /* No celular o nome vem primeiro, depois a foto e o contato */
   .principal {
-    padding: 32px 20px;
+    display: contents;
   }
 
-  .identidade__nome {
-    font-size: 2.75rem;
+  .nome {
+    order: -1;
+    border-radius: 0;
+  }
+
+  .lateral__foto {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .corpo {
+    padding: 8px 20px 40px;
   }
 }

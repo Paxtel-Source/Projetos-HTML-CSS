@@ -31,7 +31,7 @@ cartao-de-visita/
 ## Como personalizar
 
 1. **Foto:** coloque sua foto em `img/` (por exemplo, `img/foto.jpg`) e troque o `src` da tag `<img class="cartao__foto">`.
-2. **Links:** no `index.html`, troque o endereço do LinkedIn e o `mailto:seuemail@exemplo.com` pelos seus.
+2. **Links:** os endereços do GitHub, do LinkedIn e do e-mail (`mailto:`) ficam no `index.html`, dentro de cada `<a class="link">`.
 3. **Cores:** mude as variáveis no começo do `css/style.css`:
    ```css
    :root {
